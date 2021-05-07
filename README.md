@@ -10,7 +10,7 @@ and parse_timing.  Both start_abc and restart_abc return a function which takes
 a string version of a command to the ABC shell. The command returns a tuple of the
 status and the string that would have been printed to the console. For example
 
-    using ABC
+    using BerkeleyABC
     abc_cmd = start_abc()
     res = abc_cmd("read_blif cla_32.blif")
     
