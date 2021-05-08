@@ -14,11 +14,12 @@ function start_abc(;load_aliases=true)
         status = 0
         res = ""
         mktemp() do _, io
-            redirect_stdout(io)
-            status = abc_cmd(args)
-            Base.Libc.flush_cstdio()
-            seek(io, 0)
-            res = readlines(io)
+            redirect_stdout(io) do             
+                status = abc_cmd(args)
+                Base.Libc.flush_cstdio()
+                seek(io, 0)
+                res = readlines(io)
+            end
         end
         return status, res
     end
